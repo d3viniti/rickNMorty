@@ -3,14 +3,15 @@ import './App.css'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import Homepage from './pages/Homepage/Homepage'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import About from './pages/About/About'
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Episodes from './pages/Episodes/Episodes'
 
 function App() {
 
 
   return (
-    <>
+    <BrowserRouter>
       <Header />
 
 
@@ -21,7 +22,7 @@ function App() {
       </Routes>
       
       <Footer />
-    </>
+    </BrowserRouter>
   )
 }
 
