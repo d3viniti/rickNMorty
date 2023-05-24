@@ -7,7 +7,7 @@ function CharacterCard({character}) {
         <img src={character?.image} />
         {/* the ? tells the data to not look for this img if it can't find it */}
         <p>{character?.name}</p>
-        <a href="#">See Details</a>
+        <a href={`/details/${character?.id}`}>See Details</a>
     </div>
   )
 }
