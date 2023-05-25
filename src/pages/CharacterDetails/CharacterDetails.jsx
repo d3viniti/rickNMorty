@@ -13,7 +13,7 @@ function CharacterDetails() {
 
 
     //create state to hold character data
-    //be VERY intentional when using singular/plural tense with state to not confuse yourself
+    //be intentional wsingular/plural tense with state - not confuse yourself
     const [character, setCharacter] = React.useState('')
     //if your state is holding an array, make sure to initialize state to an empty array!
 
@@ -37,12 +37,14 @@ function CharacterDetails() {
     )
   return (
     <div className="details-container">
+        <img src={character?.image}/>
         <div className="container-info">
             <p>Name: {character?.name}</p>
             <p>Gender: {character?.gender}</p>
-            <p>Location: {character?.location.name}</p>
+            <p>Location: {character?.location?.name}</p>
             <p>Species: {character?.species}</p>
-        </div>   
+        </div>  
+         {/* if you see cannot read properties of undefined, probably need question marks */}
         {/* test for {characterId} here! */}
         </div>
   )
