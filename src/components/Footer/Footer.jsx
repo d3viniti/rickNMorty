@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Footer.css'
 import Modal from 'react-modal'
+import { ThemeContext } from '../../contexts/ThemeContext'
+
 
 function Footer() {
+
+  //use context for global state
+  //NOTE { } NOT [ ]
+  const {darkMode, setDarkMode} = useContext(ThemeContext)
 
   //create state to control the modal
   //we put false in () to initialize the modal to be off by default
@@ -23,7 +29,7 @@ function Footer() {
   //'root' above references the root element, for screen read accessibility
 
   return (
-    <div className='footer-container'>
+    <div className={darkMode? 'footer-container footer-dark': 'footer-container'}>
         <button className='contact-btn'
                 onClick={()=>setIsOpen(true)}>Contact Us</button>
                 {/* if you pass a param to a func, must use arrow syntax */}

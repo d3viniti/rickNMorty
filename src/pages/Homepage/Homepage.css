@@ -5,6 +5,11 @@
     text-align: left;
 }
 
+.homepage-dark{
+    background-color: black;
+    color: white;
+}
+
 .homepage-container h1{
     text-align: center;
     margin-bottom:40px;

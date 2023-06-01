@@ -3,9 +3,16 @@ import './Homepage.css'
 import axios from 'axios'
 import CharacterCard from '../../components/CharacterCard/CharacterCard'
 import Search from '../../components/Search/Search'
+import { ThemeContext } from '../../contexts/ThemeContext'
+import { useContext } from 'react'
 
 
 function Homepage() {
+
+ //use context for global state
+  //NOTE { } NOT [ ]
+  const {darkMode, setDarkMode} = useContext(ThemeContext)
+
     //create state for characters
     //make sure to set initial array of useState to an empty array!
     const [characters, setCharacters] = useState([])
@@ -35,7 +42,7 @@ function Homepage() {
         }, []//empty array means run one time when page loads
     )
   return (
-    <div className='homepage-container'>
+    <div className={darkMode? 'homepage-container homepage-dark': 'homepage-container'}>
         <Search setCharacters={setCharacters}/>
         <h1>Main Characters</h1>
         <div className='characters-container'>
