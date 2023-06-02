@@ -24,7 +24,7 @@ export default function ThemeContextProvider(props){
             console.log('darkMode is ', darkMode)
             //save new state of darkMode when it changes
             localStorage.setItem('darkMode', JSON.stringify(darkMode))
-        }, [darkMode]
+        }, [darkMode] //run when darkMode changes
     )
 
     return(

@@ -9,6 +9,7 @@ import Episodes from './pages/Episodes/Episodes'
 import CharacterDetails from './pages/CharacterDetails/CharacterDetails'
 import ThemeContextProvider from './contexts/ThemeContext'
 import FavoritesContextProvider from './contexts/FavoritesContext'
+import Favorites from './pages/Favorites/Favorites'
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
           <Route path='/details/:characterId' element={<CharacterDetails />} />
           <Route path='/about' element={<About />} />
           <Route path='/episodes' element={<Episodes />} />
+          <Route path='/favorites' element={<Favorites />} />
         </Routes>
       
         <Footer />

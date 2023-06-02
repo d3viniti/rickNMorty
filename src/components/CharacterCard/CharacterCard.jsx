@@ -6,10 +6,23 @@ import { FavoritesContext } from '../../contexts/FavoritesContext';
 
 function CharacterCard({character}) {
   //start with variable for icons
-  const isFavorite = false;
+  const [isFavorite, setIsFavorite] = React.useState(false)
+  //const isFavorite = false;
   //need to access global context
   //NOTE {} not []
-  const{favorites, addCharacter} = useContext(FavoritesContext)
+  const{favorites, addCharacter, removeCharacter} = useContext(FavoritesContext)
+
+
+  //need useEffect to set value of isFavorite
+  React.useEffect(
+    ()=>{
+      //is this character already in favorites?
+      setIsFavorite(favorites.find(item=>item.id === character.id))
+
+    }, [favorites]
+    //se
+  )
+
 
   return (
     <div className='character-card'>
@@ -19,7 +32,8 @@ function CharacterCard({character}) {
         <Link to={`/details/${character?.id}`}>See Details</Link>
         {
           isFavorite?
-          <FaHeart className='heart-icon' />
+          <FaHeart className='heart-icon' 
+          onClick={()=>removeCharacter(character.id)}/>
           :
           <FaRegHeart className='heart-icon' 
           onClick={()=>addCharacter(character)}/>

@@ -7,31 +7,43 @@ export default function FavoritesContextProvider(props){
     const [favorites, setFavorites] = useState([])
 
 
-    // useEffect(
-    //     ()=>{
-    //             console.log('context loaded')
-    //             const storedDarkMode = localStorage.getItem('darkMode')
-    //             //check if something was there and if so use that value to initialize
-    //             if(storedDarkMode){
-    //                 //set with this value
-    //                 setDarkMode(JSON.parse(storedDarkMode))
-    //             }
-    //     }, [] //run one time when context loads
-    // )
+    useEffect(
+        ()=>{
+                console.log('context loaded')
+                const storedFavs = localStorage.getItem('favoritesList')
+                if(storedFavs){
+                    //only set if there is something in localStorage
+                    setFavorites(JSON.parse(storedFavs))
+                }
+        }, [] //run one time when context loads
+    )
 
-    // useEffect(
-    //     ()=>{
-    //         console.log('darkMode is ', darkMode)
-    //         //save new state of darkMode when it changes
-    //         localStorage.setItem('darkMode', JSON.stringify(darkMode))
-    //     }, [darkMode]
-    // )
+    useEffect(
+        ()=>{
+            //save to local storage any time state changes
+            localStorage.setItem('favoritesList', JSON.stringify(favorites))
+        }, [favorites] //run when favorites changes
+    )
     //this funcition's job is to add a new character to favorites
     const addCharacter = (charToAdd) =>{
         console.log('adding', charToAdd)
+        //add charToAdd to favorites array
+        let newFavorites = [...favorites, charToAdd]
+        //console.log(newFavorites)
+        setFavorites(newFavorites)
+        console.log(favorites)
+        //update local storage
     }
+
+    const removeCharacter = (charId) =>{
+        console.log('remove', charId)
+        //keep all the ones that don't match this id
+        let newFavorites = favorites.filter(item=>item.id !== charId)
+        setFavorites(newFavorites)
+    }
+
     return(
-        <FavoritesContext.Provider value={{favorites, addCharacter}}>
+        <FavoritesContext.Provider value={{favorites, addCharacter, removeCharacter}}>
             {props.children}
         </FavoritesContext.Provider>
     )

@@ -19,6 +19,7 @@ function Header() {
             <Link to='/about' style={{marginRight:'10px'}}>About</Link>
             <Link to='/episodes' style={{marginRight:'10px'}}>Episodes</Link>
         </div>
+        <Link to='/favorites'>My Favorites</Link>
         <button className={darkMode?'theme-btn theme-btn-dark': 'theme-btn'}
         onClick={()=>setDarkMode(!darkMode)}>
         {/* when darkMode=true, the button will say light mode, when = false it will 
