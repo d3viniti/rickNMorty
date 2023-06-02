@@ -1,6 +1,7 @@
 .character-card{
     margin:10px;
     width:250px;
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,4 +29,14 @@
     background-color: var(--primary-bg);
     color:white;
     cursor:pointer;
+}
+
+.heart-icon{
+    color: var(--primary-bg);
+    font-size: 20px;
+    margin-left: 20px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 15px;
+    left: 0px;
 }

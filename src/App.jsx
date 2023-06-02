@@ -8,6 +8,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Episodes from './pages/Episodes/Episodes'
 import CharacterDetails from './pages/CharacterDetails/CharacterDetails'
 import ThemeContextProvider from './contexts/ThemeContext'
+import FavoritesContextProvider from './contexts/FavoritesContext'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
   return (
     <BrowserRouter>
       <ThemeContextProvider>
+        <FavoritesContextProvider>
         <Header />
 
 
@@ -26,6 +28,7 @@ function App() {
         </Routes>
       
         <Footer />
+        </FavoritesContextProvider>
       </ThemeContextProvider>
     </BrowserRouter>
   )
